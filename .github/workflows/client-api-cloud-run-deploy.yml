@@ -33,6 +33,7 @@ jobs:
           region: '${{ secrets.GCP_REGION }}'
           # NOTE: If using a different source folder, update the image name below:
           source: '${{secrets.CLIENT_API_DOCKERFILE_PATH}}'
+          flags: '--allow-unauthenticated --max-instances 2 --min-instances 1'
 
       # If required, use the Cloud Run URL output in later steps
       - name: 'Show output'
