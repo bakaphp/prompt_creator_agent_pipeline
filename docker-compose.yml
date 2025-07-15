@@ -1,0 +1,44 @@
+services:
+  agent-client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.client
+    container_name: agent-client
+    ports:
+      - "8080:8080"
+    depends_on:
+      - searcher-agent
+    environment:
+      - LOCAL_AGENT_ADDRESS=${LOCAL_AGENT_ADDRESS}
+    networks:
+      - app_network
+
+  searcher-agent:
+    build:
+      context: ./agents/searcher
+      dockerfile: Dockerfile
+    container_name: searcher-agent
+    ports:
+      - "10002:10002"
+    environment:
+      - ENV=production
+      - GOOGLE_GENAI_USE_VERTEXAI=${GOOGLE_GENAI_USE_VERTEXAI}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - MAILGUN_SMTP_LOGIN=${MAILGUN_SMTP_LOGIN}
+      - MAILGUN_SMTP_PASSWORD=${MAILGUN_SMTP_PASSWORD}
+      - MAIL_FROM_ADDRESS=${MAIL_FROM_ADDRESS}
+      - LOCAL_AGENT_ADDRESS=${LOCAL_AGENT_ADDRESS}
+      - AGENT_MODEL=${AGENT_MODEL}
+      - KANVAS_API_URL=${KANVAS_API_URL}
+      - KANVAS_APP_ID=${KANVAS_APP_ID}
+      - KANVAS_APP_KEY=${KANVAS_APP_KEY}
+      - KANVAS_USER_EMAIL=${KANVAS_USER_EMAIL}
+      - KANVAS_USER_PASSWORD=${KANVAS_USER_PASSWORD}
+      - RECIPIENTS_EMAIL_ADDRESSES=${RECIPIENTS_EMAIL_ADDRESSES}
+    networks:
+      - app_network
+
+
+networks:
+  app_network:
+    driver: bridge

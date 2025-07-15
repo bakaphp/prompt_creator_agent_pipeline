@@ -54,13 +54,13 @@ jobs:
           workload_identity_provider: '${{secrets.GCP_IDENTITY_PROVIDER}}'
           service_account: ${{secrets.GCP_SERVICE_ACCOUNT}}
 
-      # - name: 'Deploy to Cloud Run'
-      #   uses: 'google-github-actions/deploy-cloudrun@v2'
-      #   with:
-      #     service: '${{ secrets.GCP_SEARCHER_CLOUD_RUN_SERVICE }}'
-      #     region: '${{ secrets.GCP_REGION }}'
-      #     # NOTE: If using a different source folder, update the image name below:
-      #     source: '${{secrets.AGENT_DOCKERFILE_PATH}}'
+      - name: 'Deploy to Cloud Run'
+        uses: 'google-github-actions/deploy-cloudrun@v2'
+        with:
+          service: '${{ secrets.GCP_SEARCHER_CLOUD_RUN_SERVICE }}'
+          region: '${{ secrets.GCP_REGION }}'
+          # NOTE: If using a different source folder, update the image name below:
+          source: '${{secrets.AGENT_DOCKERFILE_PATH}}'
 
       # If required, use the Cloud Run URL output in later steps
       - name: 'Show output'

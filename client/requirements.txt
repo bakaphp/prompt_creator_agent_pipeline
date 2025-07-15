@@ -1,0 +1,5 @@
+a2a-sdk
+click
+google-adk
+python-dotenv
+uvicorn
