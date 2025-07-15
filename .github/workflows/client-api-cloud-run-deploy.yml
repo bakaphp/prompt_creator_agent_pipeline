@@ -5,6 +5,7 @@ on:
     workflows: ['Deploy Prompt Creator Agent to Cloud Run']
     types:
       - completed
+  workflow_dispatch:
 
 jobs:
   deploy:
