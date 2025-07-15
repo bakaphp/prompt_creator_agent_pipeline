@@ -35,13 +35,6 @@ on:
       - '"main"'
   workflow_dispatch:
 
-env:
-  PROJECT_ID: ${{secrets.GCP_PROJECT_ID}}
-  REGION: ${{secrets.GCP_REGION}}
-  SERVICE: ${{secrets.GCP_SEARCHER_CLOUD_RUN_SERVICE}}
-  GCP_IDENTITY_PROVIDER: ${{secrets.GCP_IDENTITY_PROVIDER}}
-  AGENT_DOCKERFILE_PATH: ${{secrets.AGENT_DOCKERFILE_PATH}}
-
 jobs:
   deploy:
     runs-on: 'ubuntu-latest'
@@ -58,15 +51,16 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v2'
         with:
-          workload_identity_provider: '${env.GCP_IDENTITY_PROVIDER}'
+          workload_identity_provider: '${secrets.GCP_IDENTITY_PROVIDER}'
+          service_account: ${{secrets.GCP_SERVICE_ACCOUNT}}
 
       # - name: 'Deploy to Cloud Run'
       #   uses: 'google-github-actions/deploy-cloudrun@v2'
       #   with:
-      #     service: '${{ env.SERVICE }}'
-      #     region: '${{ env.REGION }}'
+      #     service: '${{ secrets.GCP_SEARCHER_CLOUD_RUN_SERVICE }}'
+      #     region: '${{ secrets.GCP_REGION }}'
       #     # NOTE: If using a different source folder, update the image name below:
-      #     source: '${{env.AGENT_DOCKERFILE_PATH}}'
+      #     source: '${{secrets.AGENT_DOCKERFILE_PATH}}'
 
       # If required, use the Cloud Run URL output in later steps
       - name: 'Show output'
