@@ -49,7 +49,7 @@ class KanvasClient(object):
         data = response.json()
         return json.dumps(data)
 
-    def post_kanvas_message(self, email: str, password: str, message: str):
+    def post_kanvas_message(self, email: str, password: str, title: str,prompt: str):
         """
         Post a message to the Kanvas API.
         """
@@ -79,7 +79,24 @@ class KanvasClient(object):
             "variables": {
                 "input": {
                     "message_verb": "prompt",
-                    "message": message,
+                    "message": {
+                        "ai_model": {
+                            "key": "gemini",
+                            "value": "gemini-2.5-flash",
+                            "name": "Gemini 2.5 Flash",
+                            "payment": {
+                                "price": 0,
+                                "is_locked": False,
+                                "free_regeneration": False
+                            },
+                            "icon": "https://cdn.promptmine.ai/Gemini.png",
+                            "isDefault": True,
+                            "isNew": True
+                        },
+                        "prompt": prompt,
+                        "title": title,
+                        "type": "text-format"
+                    },
                     "is_public": 0,
                 }
             },

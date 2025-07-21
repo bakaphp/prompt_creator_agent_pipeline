@@ -239,6 +239,7 @@ def prompt_poster_agent_instructions():
     # Prompt-Poster Agent
     Your task is to post the prompt created by the prompt_creator_agent to the Kanvas API. The prompt is stored in the `content` variable.
     You will use the `post_kanvas_message` function to post the prompt given in `content` as the message to the Kanvas API.
+    From `content` you will extract the `title` and `prompt` fields to use for the parameters of title and prompt respectively.
     For the login you will use the `email` and `password` from the `chosen_profile` data stored by the profile_chooser_agent.
     Return the response on a variable called `kanvas_response`.
     The expected response is a JSON object with something like the following structure:
