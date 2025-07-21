@@ -30,8 +30,8 @@ jobs:
         with:
           service: '${{ secrets.GCP_SEARCHER_CLOUD_RUN_SERVICE }}'
           region: '${{ secrets.GCP_REGION }}'
-          # secrets: |
-          #   /secrets/.env=${{ secrets.GCP_SEARCHER_ENV_SECRETS_NAME }}:latest
+          secrets: |
+            /secrets/.env=${{ secrets.GCP_SEARCHER_ENV_SECRETS_NAME }}:latest
           source: '${{secrets.AGENT_DOCKERFILE_PATH}}'
           flags: ' 
             --allow-unauthenticated 
