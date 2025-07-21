@@ -22,7 +22,7 @@ class KanvasClient(object):
 
     SOCIAL_CREATOR_AGENTS_KEY='social-creator-agents'
 
-    def login(self):
+    def login(self, email: str = None, password: str = None) -> str:
         graphql_query = """
         mutation login($data: LoginInput!) {
           login(data: $data) {
@@ -30,13 +30,17 @@ class KanvasClient(object):
           }
         }
         """
+        if not email:
+            email = os.getenv("KANVAS_USER_EMAIL")
+        if not password:
+            password = os.getenv("KANVAS_USER_PASSWORD")
 
         payload = {
             "query": graphql_query,
             "variables": {
                 "data": {
-                    "email": os.getenv("KANVAS_USER_EMAIL"),
-                    "password": os.getenv("KANVAS_USER_PASSWORD"),
+                    "email": email,
+                    "password": password,
                 }
             },
         }
@@ -45,11 +49,11 @@ class KanvasClient(object):
         data = response.json()
         return json.dumps(data)
 
-    def post_kanvas_message(self, message: object):
+    def post_kanvas_message(self, email: str, password: str, message: str):
         """
         Post a message to the Kanvas API.
         """
-        kanvas_auth = self.login()
+        kanvas_auth = self.login(email=email, password=password)
         if not kanvas_auth:
             return json.dumps({"success": False, "error": "Authentication failed"})
         auth_token = (
@@ -130,7 +134,7 @@ class KanvasClient(object):
         data = response.json()
         return json.dumps(data)
     
-    def fetch_random_profile_bio(self) -> str:
+    def fetch_random_profile(self) -> dict:
       """_summary_
         Get a random profile bio from the social-creator-agents apps_settings for Promptmine
       Returns:
@@ -143,8 +147,8 @@ class KanvasClient(object):
       current_hour = datetime.now().hour
       for profile in profile_object:
           if profile['activeHour'] == current_hour:
-              return profile['bio']
-          
-      return "No profile for this hour"
+              return {"bio": profile['bio'], "email": profile['email'], "password": profile['password']}
+
+      return {"bio": "No profile for this hour"}
 
 

@@ -120,8 +120,8 @@ def main():
         description=agent_info["prompt_creator_agent"]["description"],
         instruction=agent_info["prompt_creator_agent"]["instruction"],
         global_instruction=get_global_instructions(),
-        tools=[KanvasClient().fetch_random_profile_bio],
-        output_key="content",
+        tools=[KanvasClient().fetch_random_profile],
+        output_key=["content", "chosen_profile"],
     )
     search_agent = LlmAgent(
         name=agent_info["search_agent"]["name"],
@@ -175,6 +175,12 @@ def main():
                 name="call_quality_assurance_agent",
                 description="calls the quality assurance agent to quality test the prompt blueprint proposed by the prompt_creator_agent",
                 tags=["email", "send", "keywords"],
+            ),
+            AgentSkill(
+                id="call_prompt_post_agent",
+                name="call_prompt_post_agent",
+                description="calls the prompt post agent to post the generated prompt to Kanvas API.",
+                tags=["post", "prompt", "kanvas"],
             ),
             AgentSkill(
                 id="call_email_sender_agent",
