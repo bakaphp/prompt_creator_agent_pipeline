@@ -31,19 +31,7 @@ jobs:
           service: '${{ secrets.GCP_SEARCHER_CLOUD_RUN_SERVICE }}'
           region: '${{ secrets.GCP_REGION }}'
           secrets: |
-                  GOOGLE_GENAI_USE_VERTEXAI=${{ secrets.GOOGLE_GENAI_USE_VERTEXAI }}:latest
-                  GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}:latest
-                  MAILGUN_SMTP_LOGIN=${{ secrets.MAILGUN_SMTP_LOGIN }}:latest
-                  MAILGUN_SMTP_PASSWORD=${{ secrets.MAILGUN_SMTP_PASSWORD }}:latest
-                  LOCAL_AGENT_ADDRESS=${{ secrets.LOCAL_AGENT_ADDRESS }}:latest
-                  AGENT_MODEL=${{ secrets.AGENT_MODEL }}:latest
-                  KANVAS_API_URL=${{ secrets.KANVAS_API_URL }}:latest
-                  KANVAS_APP_ID=${{ secrets.KANVAS_APP_ID }}:latest
-                  KANVAS_APP_KEY=${{ secrets.KANVAS_APP_KEY }}:latest
-                  KANVAS_USER_EMAIL=${{ secrets.KANVAS_USER_EMAIL }}:latest
-                  KANVAS_USER_PASSWORD=${{ secrets.KANVAS_USER_PASSWORD }}:latest
-                  RECIPIENTS_EMAIL_ADDRESSES=${{ secrets.RECIPIENTS_EMAIL_ADDRESSES }}:latest
-          # NOTE: If using a different source folder, update the image name below:
+            /secrets=.env:${{ secrets.GCP_SEARCHER_ENV_SECRETS_NAME }}:latest
           source: '${{secrets.AGENT_DOCKERFILE_PATH}}'
           flags: ' 
             --allow-unauthenticated 
