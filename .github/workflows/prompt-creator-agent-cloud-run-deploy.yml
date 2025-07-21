@@ -36,7 +36,7 @@ jobs:
             --allow-unauthenticated 
             --max-instances 2 
             --min-instances 1
-            --set-secrets = [
+            --set-secrets [
               "GOOGLE_GENAI_USE_VERTEXAI=${{ secrets.GOOGLE_GENAI_USE_VERTEXAI }}",
               "GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}",
               "MAILGUN_SMTP_LOGIN=${{ secrets.MAILGUN_SMTP_LOGIN }}",
