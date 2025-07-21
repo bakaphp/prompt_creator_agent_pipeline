@@ -39,6 +39,8 @@ jobs:
         with:
           workload_identity_provider: '${{secrets.GCP_IDENTITY_PROVIDER}}'
           service_account: ${{secrets.GCP_SERVICE_ACCOUNT}}
+          secrets: |
+            LOCAL_AGENT_ADDRESS=${{ env.LOCAL_AGENT_ADDRESS }}
 
       - name: 'Deploy to Cloud Run'
         uses: 'google-github-actions/deploy-cloudrun@v2'
@@ -51,9 +53,7 @@ jobs:
             --allow-unauthenticated
             --max-instances 2
             --min-instances 1
-            --set-secrets = [
-              "LOCAL_AGENT_ADDRESS=${LOCAL_AGENT_ADDRESS}"
-            ]'
+            '
 
       # If required, use the Cloud Run URL output in later steps
       - name: 'Show output'
