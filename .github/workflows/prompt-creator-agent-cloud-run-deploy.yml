@@ -39,12 +39,12 @@ jobs:
             --min-instances 1
             '
 
-      - name: 'Store output url'
+      - name: 'Echo output url'
         run: |-
-          echo ${{ steps.deploy.outputs.url }} > agent_url.txt
+          echo ${{ steps.deploy.outputs.url }}
 
-      - name: Upload agent URL
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-artifact
-          path: agent_url.txt
+      # - name: Upload agent URL
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: build-artifact
+      #     path: agent_url.txt

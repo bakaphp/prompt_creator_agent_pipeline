@@ -8,18 +8,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  download:
-    runs-on: 'ubuntu-latest'
-    steps:
-      - name: 'Download agent URL'
-        uses: 'actions/download-artifact@v4'
-        with:
-          name: build-artifact
+  # download:
+  #   runs-on: 'ubuntu-latest'
+  #   steps:
+  #     - name: 'Download agent URL'
+  #       uses: 'actions/download-artifact@v4'
+  #       with:
+  #         name: build-artifact
 
-      - name: Read value into env
-        id: read_address
-        run: |
-          echo "LOCAL_AGENT_ADDRESS=$(cat agent_url.txt)" >> $GITHUB_ENV
+  #     - name: Read value into env
+  #       id: read_address
+  #       run: |
+  #         echo "LOCAL_AGENT_ADDRESS=$(cat agent_url.txt)" >> $GITHUB_ENV
 
   deploy:
     runs-on: 'ubuntu-latest'
@@ -38,8 +38,8 @@ jobs:
         with:
           workload_identity_provider: '${{secrets.GCP_IDENTITY_PROVIDER}}'
           service_account: ${{secrets.GCP_SERVICE_ACCOUNT}}
-          secrets: |
-            LOCAL_AGENT_ADDRESS=${{ env.LOCAL_AGENT_ADDRESS }}:latest
+          env_vars: |
+            LOCAL_AGENT_ADDRESS=${{ env.CLIENT_API_LOCAL_AGENT_ADDRESS }}:latest
 
       - name: 'Deploy to Cloud Run'
         uses: 'google-github-actions/deploy-cloudrun@v2'
