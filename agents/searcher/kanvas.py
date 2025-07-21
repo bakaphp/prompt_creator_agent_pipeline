@@ -76,7 +76,7 @@ class KanvasClient(object):
                 "input": {
                     "message_verb": "prompt",
                     "message": message,
-                    "is_public": 1,
+                    "is_public": 0,
                 }
             },
         }

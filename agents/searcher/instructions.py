@@ -183,7 +183,8 @@ Your task: package the latest prompt-creation results into an email.
 
 **Data provided to you (JSON objects)**  
 - `trend_result` – collision-idea record from TrendSeeker  
-- `content`      – prompt JSON from PromptCrafter  
+- `content`      – prompt JSON from PromptCrafter
+- `kanvas_response` – response from Kanvas API after posting the prompt
 
 ### How to respond
 1. **Convert** both JSON objects to human-readable text and use as the text_body(body) of the email.  
@@ -194,6 +195,8 @@ Your task: package the latest prompt-creation results into an email.
 Collision Idea:
 
 Prompt Proposed:
+
+Kanvas Response:
 
 If the email has been sent, tell me the recipients of the email. Please truthfully tell me if the email has been sent to each recipient.
 """
@@ -232,6 +235,29 @@ def quality_assurance_agent_instructions():
 
 """
 
+def prompt_poster_agent_instructions():
+    return """
+    # Prompt-Poster Agent
+    Your task is to post the prompt created by the prompt_creator_agent to the Kanvas API. The prompt is stored in the `content` variable.
+    You will use the `post_kanvas_message` function to post the prompt to the Kanvas API.
+    For the message you will use the `content` variable as the message to post.
+    Return the response on a variable called `kanvas_response`.
+    The expected response is a JSON object with something like the following structure:
+    ```json
+    {
+        "success": true,
+        "data": 
+        {
+            "id": "message_id",
+            "uuid": "message_uuid",
+            "message": "The message posted",
+            "created_at": "timestamp"
+        }
+    }
+    ```
+    Store the response in a variable called `kanvas_response` and return it as a JSON object.
+"""
+
 def get_agent_information():
     return {
         "search_agent": {
@@ -248,6 +274,11 @@ def get_agent_information():
             "name": "quality_assurance_agent",
             "description": "You are a quality assurance agent, you review prompts greated by the prompt_creator_agent and check its quality against a list of requirements.",
             "instruction": quality_assurance_agent_instructions(),
+        },
+        "prompt_poster_agent": {
+            "name": "prompt_poster_agent",
+            "description": "Posts the created prompt to the Kanvas API.",
+            "instruction": prompt_poster_agent_instructions(),
         },
         "email_sender_agent": {
             "name": "email_sender_agent",

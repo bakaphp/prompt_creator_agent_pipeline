@@ -96,6 +96,16 @@ def main():
         tools=[send_email],
     )
 
+    prompt_poster_agent = LlmAgent(
+        name=agent_info["prompt_poster_agent"]["name"],
+        model=agent_model,
+        description=agent_info["prompt_poster_agent"]["description"],
+        instruction=agent_info["prompt_poster_agent"]["instruction"],
+        global_instruction=get_global_instructions(),
+        tools=[KanvasClient().post_kanvas_message],
+        output_key="kanvas_response",
+    )
+
     quality_assurance_agent = LlmAgent(
         name=agent_info["quality_assurance_agent"]["name"],
         model='gemini-2.5-pro',
@@ -130,7 +140,8 @@ def main():
             search_agent,
             prompt_creation_agent,
             quality_assurance_agent,
-            email_sender_agent,
+            prompt_poster_agent,
+            email_sender_agent
         ],
     )
 
