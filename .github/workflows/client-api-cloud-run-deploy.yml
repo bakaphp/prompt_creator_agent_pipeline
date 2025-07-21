@@ -8,6 +8,20 @@ on:
   workflow_dispatch:
 
 jobs:
+  download:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Download agent URL'
+        uses: 'actions/download-artifact@v4'
+        with:
+          name: build-artifact
+          path: .
+
+      - name: Read value into env
+        id: read_address
+        run: |
+          echo "LOCAL_AGENT_ADDRESS=$(cat agent_url.txt)" >> $GITHUB_ENV
+
   deploy:
     runs-on: 'ubuntu-latest'
 
@@ -33,7 +47,13 @@ jobs:
           region: '${{ secrets.GCP_REGION }}'
           # NOTE: If using a different source folder, update the image name below:
           source: '${{secrets.CLIENT_API_DOCKERFILE_PATH}}'
-          flags: '--allow-unauthenticated --max-instances 2 --min-instances 1'
+          flags: '
+            --allow-unauthenticated
+            --max-instances 2
+            --min-instances 1
+            --set-secrets = [
+              "LOCAL_AGENT_ADDRESS=${LOCAL_AGENT_ADDRESS}"
+            ]'
 
       # If required, use the Cloud Run URL output in later steps
       - name: 'Show output'

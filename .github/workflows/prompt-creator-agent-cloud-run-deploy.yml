@@ -32,9 +32,31 @@ jobs:
           region: '${{ secrets.GCP_REGION }}'
           # NOTE: If using a different source folder, update the image name below:
           source: '${{secrets.AGENT_DOCKERFILE_PATH}}'
-          flags: '--allow-unauthenticated --max-instances 2 --min-instances 1'
+          flags: ' 
+            --allow-unauthenticated 
+            --max-instances 2 
+            --min-instances 1
+            --set-secrets = [
+              "GOOGLE_GENAI_USE_VERTEXAI=${{ secrets.GOOGLE_GENAI_USE_VERTEXAI }}",
+              "GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }}",
+              "MAILGUN_SMTP_LOGIN=${{ secrets.MAILGUN_SMTP_LOGIN }}",
+              "MAILGUN_SMTP_PASSWORD=${{ secrets.MAILGUN_SMTP_PASSWORD }}",
+              "LOCAL_AGENT_ADDRESS=${{ secrets.LOCAL_AGENT_ADDRESS }}",
+              "AGENT_MODEL=${{ secrets.AGENT_MODEL }}",
+              "KANVAS_API_URL=${{ secrets.KANVAS_API_URL }}",
+              "KANVAS_APP_ID=${{ secrets.KANVAS_APP_ID }}",
+              "KANVAS_APP_KEY=${{ secrets.KANVAS_APP_KEY }}",
+              "KANVAS_USER_EMAIL=${{ secrets.KANVAS_USER_EMAIL }}",
+              "KANVAS_USER_PASSWORD=${{ secrets.KANVAS_USER_PASSWORD }}",
+              "RECIPIENTS_EMAIL_ADDRESSES=${{ secrets.RECIPIENTS_EMAIL_ADDRESSES }}",
+              ]'
 
-      # If required, use the Cloud Run URL output in later steps
-      - name: 'Show output'
+      - name: 'Store output url'
         run: |-
-          echo ${{ steps.deploy.outputs.url }}
+          echo ${{ steps.deploy.outputs.url }} > agent_url.txt
+
+      - name: Upload agent URL
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact
+          path: agent_url.txt
