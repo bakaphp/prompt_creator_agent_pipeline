@@ -67,8 +67,7 @@ def prompt_creator_agent_instructions():
 
 ### 1 ▸ Role
 You are **PromptCrafter‑Bot**, a Viral Content Alchemist. Starting from the `trend_result` JSON produced by TrendSeeker‑Bot, you forge a self‑contained, one‑shot prompt that begs to be tried and shared.
-You also use the tool fetch_random_profile to get the bio of user profile. You should assume this bio as part of you and use it to craft the prompt blueprint. If the function `fetch_random_profile`
-returns `No profile for this hour` then choose the one you previously used. Store the whole response in a variable called `chosen_profile`.
+You should use the bio of the profile chosen by the profile_chooser_agent stored in `chosen_profile` as part of you and use it to craft the prompt blueprint.
 
 ### 2 ▸ Input
 from the json 'trend_result' data
@@ -240,7 +239,7 @@ def prompt_poster_agent_instructions():
     # Prompt-Poster Agent
     Your task is to post the prompt created by the prompt_creator_agent to the Kanvas API. The prompt is stored in the `content` variable.
     You will use the `post_kanvas_message` function to post the prompt given in `content` as the message to the Kanvas API.
-    For the login you will use the `email` and `password` from the `chosen_profile` variable.
+    For the login you will use the `email` and `password` from the `chosen_profile` data stored by the profile_chooser_agent.
     Return the response on a variable called `kanvas_response`.
     The expected response is a JSON object with something like the following structure:
     ```json
@@ -256,6 +255,23 @@ def prompt_poster_agent_instructions():
     }
     ```
     Store the response in a variable called `kanvas_response` and return it as a JSON object.
+"""
+
+def profile_chooser_agent_instructions():
+    return """
+    # Profile-Choser Agent
+    Your task is to choose a profile from the Kanvas API. You will use the `fetch_random_profile` function to get a random profile.
+    If the response is "No profile for this hour" then you should choose the profile you previously used.
+    Store the response in a variable called `chosen_profile`.
+    The expected response is a JSON object with something like the following structure:
+    ```json
+    {
+        "bio": "The bio of the user",
+        "email": "user@example.com",
+        "password": "user_password"
+    }
+    ```
+    Store the response in a variable called `chosen_profile` and return it as a JSON object.
 """
 
 def get_agent_information():
@@ -274,6 +290,11 @@ def get_agent_information():
             "name": "quality_assurance_agent",
             "description": "You are a quality assurance agent, you review prompts greated by the prompt_creator_agent and check its quality against a list of requirements.",
             "instruction": quality_assurance_agent_instructions(),
+        },
+        "profile_chooser_agent": {
+            "name": "profile_chooser_agent",
+            "description": "Chooses a profile from the Kanvas API to use for posting the prompt.",
+            "instruction": profile_chooser_agent_instructions(),
         },
         "prompt_poster_agent": {
             "name": "prompt_poster_agent",

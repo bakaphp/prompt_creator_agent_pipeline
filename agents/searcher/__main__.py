@@ -3,6 +3,7 @@ import json
 from json import tool
 import logging
 import os
+import profile
 import re
 import requests
 
@@ -106,6 +107,16 @@ def main():
         output_key="kanvas_response",
     )
 
+    profile_chooser_agent = LlmAgent(
+        name=agent_info["profile_chooser_agent"]["name"],
+        model=agent_model,
+        description=agent_info["profile_chooser_agent"]["description"],
+        instruction=agent_info["profile_chooser_agent"]["instruction"],
+        global_instruction=get_global_instructions(),
+        tools=[KanvasClient().fetch_random_profile],
+        output_key="chosen_profile",
+    )
+
     quality_assurance_agent = LlmAgent(
         name=agent_info["quality_assurance_agent"]["name"],
         model='gemini-2.5-pro',
@@ -121,7 +132,7 @@ def main():
         instruction=agent_info["prompt_creator_agent"]["instruction"],
         global_instruction=get_global_instructions(),
         tools=[KanvasClient().fetch_random_profile],
-        output_key=["content", "chosen_profile"],
+        output_key="content",
     )
     search_agent = LlmAgent(
         name=agent_info["search_agent"]["name"],
@@ -138,6 +149,7 @@ def main():
         description="Executes a pipeline of agents to create prompts from Google trending topics given a category.",
         sub_agents=[
             search_agent,
+            profile_chooser_agent,
             prompt_creation_agent,
             quality_assurance_agent,
             prompt_poster_agent,
@@ -163,6 +175,12 @@ def main():
                 examples=[
                     "What is trending in technology",
                 ],
+            ),
+            AgentSkill(
+                id="call_profile_chooser_agent",
+                name="call_profile_chooser_agent",
+                description="calls the profile chooser agent to get a random user profile.",
+                tags=["profile", "user", "random"],
             ),
             AgentSkill(
                 id="call_prompt_creator_agent",
