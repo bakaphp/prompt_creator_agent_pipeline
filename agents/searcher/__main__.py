@@ -28,7 +28,7 @@ from instructions import get_agent_information, get_global_instructions
 from kanvas import KanvasClient
 
 
-load_dotenv('/secrets/.env')
+load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
