@@ -29,7 +29,7 @@ coverage/
 
 
 .venv/
-agents/searcher/.env
+agents/searcher/secrets/.env
 
-agents/searcher/.env
-client/.env
+agents/searcher/secrets/.env
+client/secrets/.env
