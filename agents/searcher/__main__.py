@@ -50,7 +50,7 @@ def send_email(text_body: str):
         logger.error("Missing required environment variables for email sending.")
         return False
 
-    recipients = "rwhite@mctekk.com,max@mctekk.com,cian@memod.com"
+    recipients = os.getenv("RECIPIENTS_EMAIL_ADDRESSES")
     recipient_list = [email.strip() for email in recipients.split(",") if email.strip()]
 
     smtp_server = "smtp.mailgun.org"
