@@ -246,6 +246,7 @@ def prompt_poster_agent_instructions():
     ```json
     {
         "success": true,
+        "creator_email(email of the chosen profile)": "example@kanvas.dev",
         "data": 
         {
             "id": "message_id",
