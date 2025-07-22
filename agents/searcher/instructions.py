@@ -250,7 +250,6 @@ def prompt_poster_agent_instructions():
         {
             "id": "message_id",
             "uuid": "message_uuid",
-            "message": "The message posted",
             "created_at": "timestamp"
         }
     }

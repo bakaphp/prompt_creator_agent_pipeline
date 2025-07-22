@@ -59,7 +59,7 @@ def send_email(text_body: str):
     msg = MIMEMultipart()
     msg["From"] = sender
     msg["To"] = ",".join(recipient_list)
-    msg["Subject"] = "Trending Topics Keywords"
+    msg["Subject"] = "Prompt Creation Pipeline Results"
     msg.attach(MIMEText(text_body, "plain"))
 
     for attempt in range(1, max_retries + 1):
