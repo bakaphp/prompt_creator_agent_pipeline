@@ -107,6 +107,16 @@ def main():
         output_key="kanvas_response",
     )
 
+    nugget_poster_agent = LlmAgent(
+        name=agent_info["nugget_poster_agent"]["name"],
+        model=agent_model,
+        description=agent_info["nugget_poster_agent"]["description"],
+        instruction=agent_info["nugget_poster_agent"]["instruction"],
+        global_instruction=get_global_instructions(),
+        tools=[KanvasClient().post_kanvas_message],
+        output_key="nugget_kanvas_response",
+    )
+
     profile_chooser_agent = LlmAgent(
         name=agent_info["profile_chooser_agent"]["name"],
         model=agent_model,
@@ -153,6 +163,7 @@ def main():
             prompt_creation_agent,
             quality_assurance_agent,
             prompt_poster_agent,
+            nugget_poster_agent,
             email_sender_agent
         ],
     )
@@ -199,6 +210,12 @@ def main():
                 name="call_prompt_post_agent",
                 description="calls the prompt post agent to post the generated prompt to Kanvas API.",
                 tags=["post", "prompt", "kanvas"],
+            ),
+            AgentSkill(
+                id="call_nugget_post_agent",
+                name="call_nugget_post_agent",
+                description="calls the nugget post agent to post the generated nugget to Kanvas API.",
+                tags=["post", "nugget", "kanvas"],
             ),
             AgentSkill(
                 id="call_email_sender_agent",

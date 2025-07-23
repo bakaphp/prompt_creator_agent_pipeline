@@ -49,7 +49,7 @@ class KanvasClient(object):
         data = response.json()
         return json.dumps(data)
 
-    def post_kanvas_message(self, email: str, password: str, title: str,prompt: str):
+    def post_kanvas_message(self, email: str, password: str, title: str,prompt: str, parent_id: int = None) -> str:
         """
         Post a message to the Kanvas API.
         """
@@ -98,7 +98,8 @@ class KanvasClient(object):
                         "type": "text-format"
                     },
                     "is_public": 0,
-                }
+                },
+                "parent_id": parent_id if parent_id else None,
             },
         }
 

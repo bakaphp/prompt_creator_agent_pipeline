@@ -258,6 +258,33 @@ def prompt_poster_agent_instructions():
     Store the response in a variable called `kanvas_response` and return it as a JSON object.
 """
 
+def nugget_poster_agent_instructions():
+    return """
+    # Prompt-Poster Agent
+    Your task is to post the results of the prompt created by the prompt_creator_agent to the Kanvas API. The prompt is stored in the `content` variable.
+    You will do the tasks below:
+    1. From `kanvas_response` you will extract the `id` from the response and use it as the `parent_id` for the next message.
+    2. Execute the prompt stored in `content`.
+    3. You will use the `post_kanvas_message` function to post the results from the prompt execution to the Kanvas API.
+    From `content` you will extract the `title` and for the message you will use the results from the prompt execution. For the parent_id you will use the `id` from the `kanvas_response` data.
+    For the login you will use the `email` and `password` from the `chosen_profile` data stored by the profile_chooser_agent.
+    Return the response on a variable called `nugget_kanvas_response`.
+    The expected response is a JSON object with something like the following structure:
+    ```json
+    {
+        "success": true,
+        "creator_email(email of the chosen profile)": "example@kanvas.dev",
+        "data": 
+        {
+            "id": "message_id",
+            "uuid": "message_uuid",
+            "created_at": "timestamp"
+        }
+    }
+    ```
+    Store the response in a variable called `nugget_kanvas_response` and return it as a JSON object.
+"""
+
 def profile_chooser_agent_instructions():
     return """
     # Profile-Choser Agent
@@ -301,6 +328,11 @@ def get_agent_information():
             "name": "prompt_poster_agent",
             "description": "Posts the created prompt to the Kanvas API.",
             "instruction": prompt_poster_agent_instructions(),
+        },
+        "nugget_poster_agent": {
+            "name": "nugget_poster_agent",
+            "description": "Posts the created nugget to the Kanvas API.",
+            "instruction": nugget_poster_agent_instructions(),
         },
         "email_sender_agent": {
             "name": "email_sender_agent",
