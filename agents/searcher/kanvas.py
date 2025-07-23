@@ -3,6 +3,7 @@ from util.requests import RequestsUtil
 import os
 import json
 from datetime import datetime
+from typing import Optional
 
 
 class KanvasClient(object):
@@ -49,7 +50,7 @@ class KanvasClient(object):
         data = response.json()
         return json.dumps(data)
 
-    def post_kanvas_message(self, email: str, password: str, title: str,prompt: str, parent_id: int = None) -> str:
+    def post_kanvas_message(self, email: str, password: str, title: str,prompt: str, parent_id: Optional[int] = None) -> str:
         """
         Post a message to the Kanvas API.
         """
