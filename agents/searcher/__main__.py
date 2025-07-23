@@ -109,11 +109,11 @@ def main():
 
     nugget_poster_agent = LlmAgent(
         name=agent_info["nugget_poster_agent"]["name"],
-        model=agent_model,
+        model='gemini-2.5-pro',
         description=agent_info["nugget_poster_agent"]["description"],
         instruction=agent_info["nugget_poster_agent"]["instruction"],
         global_instruction=get_global_instructions(),
-        tools=[KanvasClient().post_kanvas_message],
+        tools=[KanvasClient().post_kanvas_nugget_message],
         output_key="nugget_kanvas_response",
     )
 

@@ -81,7 +81,7 @@ I.N.S.P.I.R.E. pattern
 
 Intro Motive – One‑sentence hook that names the user’s tension/problem in plain language.
 
-Needs List – Enumerate 1–3 specific inputs you require, each with an EXAMPLE in parentheses.
+Needs List – Enumerate 1–3 specific inputs each with an EXAMPLE.
 
 Separator – Add --- (three dashes) on its own line.
 
@@ -90,8 +90,6 @@ Persona Pledge – One line that declares the AI persona you’ll adopt.
 Instruction Body – Explain your proprietary method/framework in conversational prose (≤ 120 words). List the framework steps or components, if applicable, in a numbered list.
 
 Result Promise – Finish with a single‑sentence outcome that highlights why this will be share‑worthy/viral.
-
-Encourage Action – End with: “Reply with your inputs and watch the magic.”(Does not need to be this specific, but should encourage the user to reply with their inputs.)
 
 Each prompt MUST:
    - Solve a specific problem in a novel way with clear, actionable value.
@@ -184,6 +182,7 @@ Your task: package the latest prompt-creation results into an email.
 - `trend_result` – collision-idea record from TrendSeeker  
 - `content`      – prompt JSON from PromptCrafter
 - `kanvas_response` – response from Kanvas API after posting the prompt
+- `nugget_kanvas_response` – response from Kanvas API after posting the nugget
 
 ### How to respond
 1. **Convert** both JSON objects to human-readable text and use as the text_body(body) of the email.  
@@ -195,7 +194,9 @@ Collision Idea:
 
 Prompt Proposed:
 
-Kanvas Response:
+Kanvas Prompt Response:
+
+Kanvas Nugget Response:
 
 If the email has been sent, tell me the recipients of the email. Please truthfully tell me if the email has been sent to each recipient.
 """
@@ -265,8 +266,8 @@ def nugget_poster_agent_instructions():
     You will do the tasks below:
     1. From `kanvas_response` you will extract the `id` from the response and use it as the `parent_id` for the next message.
     2. Execute the prompt stored in `content`.
-    3. You will use the `post_kanvas_message` function to post the results from the prompt execution to the Kanvas API.
-    From `content` you will extract the `title` and for the message you will use the results from the prompt execution. For the parent_id you will use the `id` from the `kanvas_response` data.
+    3. You will use the `post_kanvas_nugget_message` function to post the results from the prompt execution to the Kanvas API.
+    From `content` you will extract the `title` for the title parameter and for the parameter nugget you will use the results from the prompt execution. For the parameter parent_id you will use the `id` from the `kanvas_response` data.
     For the login you will use the `email` and `password` from the `chosen_profile` data stored by the profile_chooser_agent.
     Return the response on a variable called `nugget_kanvas_response`.
     The expected response is a JSON object with something like the following structure:

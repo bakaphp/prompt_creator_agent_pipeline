@@ -50,7 +50,7 @@ class KanvasClient(object):
         data = response.json()
         return json.dumps(data)
 
-    def post_kanvas_message(self, email: str, password: str, title: str,prompt: str, parent_id: Optional[int] = None) -> str:
+    def post_kanvas_message(self, email: str, password: str, title: str, prompt: str) -> str:
         """
         Post a message to the Kanvas API.
         """
@@ -100,7 +100,73 @@ class KanvasClient(object):
                     },
                     "is_public": 0,
                 },
-                "parent_id": parent_id if parent_id else None,
+            },
+        }
+
+        response = RequestsUtil.post(payload=payload, auth_token=auth_token)
+        if response.status_code == 200:
+            data = response.json()
+            return json.dumps({"success": True, "data": data})
+        else:
+            return json.dumps(
+                {
+                    "success": False,
+                    "status_code": response.status_code,
+                    "error": response.text,
+                }
+            )
+        
+    def post_kanvas_nugget_message(self, email: str, password: str, title: str, nugget: str, parent_id: int) -> str:
+        """
+        Post a message to the Kanvas API.
+        """
+        kanvas_auth = self.login(email=email, password=password)
+        if not kanvas_auth:
+            return json.dumps({"success": False, "error": "Authentication failed"})
+        auth_token = (
+            json.loads(kanvas_auth).get("data", {}).get("login", {}).get("token")
+        )
+        if not auth_token:
+            return json.dumps(
+                {"success": False, "error": "Authentication token not found"}
+            )
+        graphql_query = """
+        mutation createMessage($input: MessageInput!) {
+          createMessage(input: $input) {
+            id
+            uuid
+            message
+            created_at
+          }
+        }
+        """
+
+        payload = {
+            "query": graphql_query,
+            "variables": {
+                "input": {
+                    "message_verb": "memo",
+                    "message": {
+                        "ai_model": {
+                            "key": "gemini",
+                            "value": "gemini-2.5-flash",
+                            "name": "Gemini 2.5 Flash",
+                            "payment": {
+                                "price": 0,
+                                "is_locked": False,
+                                "free_regeneration": False
+                            },
+                            "icon": "https://cdn.promptmine.ai/Gemini.png",
+                            "isDefault": True,
+                            "isNew": True
+                        },
+                        "nugget": nugget,
+                        "title": title,
+                        "type": "text-format"
+                    },
+                    "is_public": 0,
+                },
+                "parent_id": parent_id,
             },
         }
 
