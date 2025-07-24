@@ -116,7 +116,7 @@ class KanvasClient(object):
                 }
             )
         
-    def post_kanvas_nugget_message(self, email: str, password: str, title: str, nugget: str, parent_id: str) -> str:
+    def post_kanvas_nugget_message(self, email: str, password: str, title: str, nugget: str, parent_id: int) -> str:
         """
         Post a message to the Kanvas API.
         """
@@ -165,8 +165,8 @@ class KanvasClient(object):
                         "type": "text-format"
                     },
                     "is_public": 0,
+                    "parent_id": parent_id,
                 },
-                "parent_id": parent_id,
             },
         }
 
