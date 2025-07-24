@@ -62,7 +62,7 @@ class KanvasClient(object):
         )
         if not auth_token:
             return json.dumps(
-                {"success": False, "error": "Authentication token not found"}
+                {"success": False, "error": "Authentication token not found", "kanvas_auth": kanvas_auth}
             )
         graphql_query = """
         mutation createMessage($input: MessageInput!) {
@@ -128,7 +128,7 @@ class KanvasClient(object):
         )
         if not auth_token:
             return json.dumps(
-                {"success": False, "error": "Authentication token not found"}
+                {"success": False, "error": "Authentication token not found", "kanvas_auth": kanvas_auth}
             )
         graphql_query = """
         mutation createMessage($input: MessageInput!) {
