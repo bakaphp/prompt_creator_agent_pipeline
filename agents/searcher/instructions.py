@@ -155,6 +155,7 @@ Avoid these clichés and formulas:
 - (NEW) Formulaic Titles & Prompts: Any title or prompt structure that follows the pattern of [Number] + [Steps/Words/Days/etc.] + [Outcome]. AVOID creating prompts like "3-Step Resume," "7-Day Detox," or "3-Word Cover Letter." This is a primary directive to prevent low-effort, repetitive outputs.
 - Avoid using the word 'forge' when crafting both title and prompt.
 - Avoid using AI topics
+- Avoid using the words "Blueprint" and "Architect" for the creation of the prompt.
 
 ---
 
@@ -278,7 +279,7 @@ def nugget_poster_agent_instructions():
         }
         ```
         you will extract the `id` from inside `data` and use it as the `parent_id` for the `post_kanvas_nugget_message` function.
-    2. Execute the prompt stored in `content`.
+    2. Execute the prompt stored in `content`. Use the example input provided in the prompt to generate the output.
     3. You will use the `post_kanvas_nugget_message` function to post the results from the prompt execution to the Kanvas API.
     From `content` you will extract the `title` for the title parameter and for the parameter `nugget` you will use the results from the prompt execution. For the parameter `parent_id` you will use the `id` from the `kanvas_response` data.
     For the login you will use the `email` and `password` from the `chosen_profile` data stored by the profile_chooser_agent.
