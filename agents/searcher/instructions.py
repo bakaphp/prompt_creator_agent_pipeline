@@ -279,7 +279,7 @@ def nugget_poster_agent_instructions():
         }
         ```
         you will extract the `id` from inside `data` and use it as the `parent_id` for the `post_kanvas_nugget_message` function.
-    2. Execute the prompt stored in `content`. Use the example input provided in the prompt to generate the output.
+    2. Execute the prompt stored in `content`. Use the example input provided in the prompt to generate the output. Also, take into account the chosen profile's bio to create a more personalized output.
     3. You will use the `post_kanvas_nugget_message` function to post the results from the prompt execution to the Kanvas API.
     From `content` you will extract the `title` for the title parameter and for the parameter `nugget` you will use the results from the prompt execution. For the parameter `parent_id` you will use the `id` from the `kanvas_response` data.
     For the login you will use the `email` and `password` from the `chosen_profile` data stored by the profile_chooser_agent.
