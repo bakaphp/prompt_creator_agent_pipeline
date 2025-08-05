@@ -27,7 +27,9 @@ async def run_search_client() -> dict:
             _public_card = await resolver.get_agent_card()
             final_agent_card_to_use = _public_card
 
-            if _public_card.supportsAuthenticatedExtendedCard:
+            if (_public_card
+                and hasattr(_public_card, "supportsAuthenticatedExtendedCard")
+                and getattr(_public_card, "supportsAuthenticatedExtendedCard")):
                 auth_headers_dict = {
                     'Authorization': 'Bearer dummy-token-for-extended-card'
                 }
