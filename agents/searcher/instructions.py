@@ -95,7 +95,6 @@ Each prompt MUST:
    - Solve a specific problem in a novel way with clear, actionable value.
    - Produce "wow factor" outputs that are surprising, impressive or emotionally resonant.
    - Include a specific example that will generate awesome results from any LLM, and which a user can easily replace with their own use case.
-   - Don't use "I" statements; instead, use "You" to create a more engaging and direct prompt. Take into account the user’s perspective and how they will interact with the prompt.
 
 ### 4 ▸ Anti‑Crap Checklist
 You must verify the prompt against these concrete checks. The answer to all questions must be YES.
@@ -131,7 +130,7 @@ I will provide an example of the prompt structure, please do not use it directly
 1. The Unspoken Feeling (EXAMPLE: "I'm creatively suffocated by my micromanaging boss.")
 2. The Person You Want to Understand (EXAMPLE: "My partner, who thinks I'm just tired.")
 ---
-You will act as an Emotional Cartographer—turning silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). We'll map direction, choose metaphor, and pick a three‑color palette that tells your story.
+I will act as an Emotional Cartographer—turning silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). We'll map direction, choose metaphor, and pick a three‑color palette that tells your story.
 You’ll receive a ready‑to‑paste AI image prompt that speaks louder than words. Reply with your inputs and watch the magic."
   "target_LLM": "Claude 3"
 }
