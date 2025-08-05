@@ -77,7 +77,7 @@ class ADKAgentExecutor(AgentExecutor):
                 app_name=self.agent.name,
                 user_id=user_id,
                 state={},
-                session_id=task.contextId,
+                session_id=task.context_id,
             )
 
             logger.info("User query: %s", query)
