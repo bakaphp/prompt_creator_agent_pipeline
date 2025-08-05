@@ -27,15 +27,15 @@ async def run_search_client() -> dict:
             _public_card = await resolver.get_agent_card()
             final_agent_card_to_use = _public_card
 
-            # if _public_card.supportsAuthenticatedExtendedCard:
-            #     auth_headers_dict = {
-            #         'Authorization': 'Bearer dummy-token-for-extended-card'
-            #     }
-            #     _extended_card = await resolver.get_agent_card(
-            #         relative_card_path='/agent/authenticatedExtendedCard',
-            #         http_kwargs={'headers': auth_headers_dict},
-            #     )
-            #     final_agent_card_to_use = _extended_card
+            if _public_card.supportsAuthenticatedExtendedCard:
+                auth_headers_dict = {
+                    'Authorization': 'Bearer dummy-token-for-extended-card'
+                }
+                _extended_card = await resolver.get_agent_card(
+                    relative_card_path='/agent/authenticatedExtendedCard',
+                    http_kwargs={'headers': auth_headers_dict},
+                )
+                final_agent_card_to_use = _extended_card
 
         except Exception as e:
             raise RuntimeError(
