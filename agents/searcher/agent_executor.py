@@ -59,7 +59,7 @@ class ADKAgentExecutor(AgentExecutor):
         task = context.current_task or new_task(context.message)
         await event_queue.enqueue_event(task)
 
-        updater = TaskUpdater(event_queue, task.id, task.contextId)
+        updater = TaskUpdater(event_queue, task.id, task.context_id)
         if context.call_context:
             user_id = context.call_context.user.user_name
         else:
@@ -69,7 +69,7 @@ class ADKAgentExecutor(AgentExecutor):
             # Update status with custom message
             await updater.update_status(
                 TaskState.working,
-                new_agent_text_message(self.status_message, task.contextId, task.id),
+                new_agent_text_message(self.status_message, task.context_id, task.id),
             )
 
             # Process with ADK agent
@@ -114,6 +114,6 @@ class ADKAgentExecutor(AgentExecutor):
         except Exception as e:
             await updater.update_status(
                 TaskState.failed,
-                new_agent_text_message(f"Error: {e!s}", task.contextId, task.id),
+                new_agent_text_message(f"Error: {e!s}", task.context_id, task.id),
                 final=True,
             )
