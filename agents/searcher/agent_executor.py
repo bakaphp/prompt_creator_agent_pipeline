@@ -103,10 +103,7 @@ class ADKAgentExecutor(AgentExecutor):
                 name=self.artifact_name,
             )
 
-            print(f"Response part added to artifacts: {response_text}")
-
-            
-
+            logger.info("Response text: %s", response_text)
             logger.info("Updater state: %s", updater.__dict__)
 
             await updater.complete()

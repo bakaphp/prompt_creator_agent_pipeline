@@ -4,6 +4,7 @@ import os
 import json
 from datetime import datetime
 from typing import Optional
+from venv import logger
 
 
 class KanvasClient(object):
@@ -24,6 +25,7 @@ class KanvasClient(object):
     SOCIAL_CREATOR_AGENTS_KEY='social-creator-agents'
 
     def login(self, email: str = None, password: str = None) -> str:
+        logger.info("Logging in to Kanvas API with email: %s", email)
         graphql_query = """
         mutation login($data: LoginInput!) {
           login(data: $data) {
@@ -54,6 +56,8 @@ class KanvasClient(object):
         """
         Post a message to the Kanvas API.
         """
+        logger.info("Posting message to Kanvas API with title: %s", title)
+        logger.info("Prompt: %s", prompt)
         kanvas_auth = self.login(email=email, password=password)
         if not kanvas_auth:
             return json.dumps({"success": False, "error": "Authentication failed"})
@@ -104,6 +108,8 @@ class KanvasClient(object):
         }
 
         response = RequestsUtil.post(payload=payload, auth_token=auth_token)
+        logger.info("Response from Kanvas API: %s", response.text)
+        logger.info("Response status code: %s", response.status_code)
         if response.status_code == 200:
             data = response.json()
             return json.dumps({"success": True, "data": data})
@@ -120,6 +126,8 @@ class KanvasClient(object):
         """
         Post a message to the Kanvas API.
         """
+        logger.info("Posting nugget message to Kanvas API with title: %s", title)
+        logger.info("Nugget: %s", nugget)
         kanvas_auth = self.login(email=email, password=password)
         if not kanvas_auth:
             return json.dumps({"success": False, "error": "Authentication failed"})
@@ -171,6 +179,8 @@ class KanvasClient(object):
         }
 
         response = RequestsUtil.post(payload=payload, auth_token=auth_token)
+        logger.info("Response from Kanvas API: %s", response.text)
+        logger.info("Response status code: %s", response.status_code)
         if response.status_code == 200:
             data = response.json()
             return json.dumps({"success": True, "data": data})
@@ -190,6 +200,7 @@ class KanvasClient(object):
         Returns:
           object: Profiles of users
         """
+        logger.info("Fetching creator profile with key: %s", key)
         kanvas_auth = self.login()
         if not kanvas_auth:
             return json.dumps({"success": False, "error": "Authentication failed"})
@@ -217,6 +228,7 @@ class KanvasClient(object):
 
         response = RequestsUtil.post(payload=payload, auth_token=auth_token, withapp_key=True)
         data = response.json()
+        logger.info("Fetched creator profile data: %s", data)
         return json.dumps(data)
     
     def fetch_random_profile(self) -> dict:
@@ -225,6 +237,7 @@ class KanvasClient(object):
       Returns:
           str: bio of the profile
       """
+      logger.info("Fetching random profile from Kanvas API")
       profiles = self.fetch_creator_profile(self.SOCIAL_CREATOR_AGENTS_KEY)
       profile_object = json.loads(profiles).get('data',{}).get('adminAppSetting')
 
@@ -232,6 +245,7 @@ class KanvasClient(object):
       current_hour = datetime.now().hour
       for profile in profile_object:
           if profile['activeHour'] == current_hour:
+              logger.info("Found profile for current hour: %s", profile)
               return {"bio": profile['bio'], "email": profile['email'], "password": profile['password']}
 
       return {"bio": "No profile for this hour"}
