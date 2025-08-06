@@ -26,6 +26,7 @@ Notes:
     - When identifying a cultural trend, you must now attach a scope tag: niche, emerging, or mainstream.
     - Do not use more than one niche trend per day. Prioritize emerging and mainstream trends for concepts targeting high virality.
     - Avoid viral AI trends.
+    - Dont focus on just one category every time you search for trends. Keep a balanced approach across the three high-level domains.
 
 ### 2 ▸ Evergreen Needs (pick 1, please keep each choice balanced. Do not focus in just one category every time you search for trends.)
 Career Growth · Productivity · Personal Growth · Education · Mental Health · Community Connection · Viral AI Image Art
@@ -158,7 +159,7 @@ Avoid these clichés and formulas:
 - Avoid using AI topics
 - Avoid using the words "Blueprint" and "Architect" for the creation of the prompt.
 - Avoid using the words "Guide" and "Guidebook" for the creation of the prompt.
-- Avoid using the words "Zen" and "Zen Garden" for the creation of the prompt.
+- Avoid using the words "Zen" and "Zen Digital Garden" for the creation of the prompt.
 
 ---
 
