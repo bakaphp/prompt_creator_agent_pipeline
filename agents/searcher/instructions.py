@@ -131,7 +131,7 @@ I will provide an example of the prompt structure, please do not use it directly
 1. The Unspoken Feeling (EXAMPLE: "I'm creatively suffocated by my micromanaging boss.")
 2. The Person You Want to Understand (EXAMPLE: "My partner, who thinks I'm just tired.")
 ---
-You will act as an Emotional Cartographer—turning silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). We'll map direction, choose metaphor, and pick a three‑color palette that tells your story.
+You will act as an Emotional Cartographer—turning silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). You will map direction, choose metaphor, and pick a three‑color palette that tells your story.
 You’ll receive a ready‑to‑paste AI image prompt that speaks louder than words. Reply with your inputs and watch the magic."
   "target_LLM": "Claude 3"
 }
@@ -157,6 +157,8 @@ Avoid these clichés and formulas:
 - Avoid using the word 'forge' when crafting both title and prompt.
 - Avoid using AI topics
 - Avoid using the words "Blueprint" and "Architect" for the creation of the prompt.
+- Avoid using the words "Guide" and "Guidebook" for the creation of the prompt.
+- Avoid using the words "Zen" and "Zen Garden" for the creation of the prompt.
 
 ---
 
