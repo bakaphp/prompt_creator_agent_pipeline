@@ -129,12 +129,12 @@ I will provide an example of the prompt structure, please do not use it directly
 
 {
   "title": "Turn Your Haters Into Fans",
-  "prompt": "To create a powerful piece of AI art that explains exactly how you feel, I need two things from you:
-1. The Unspoken Feeling (EXAMPLE: "I'm creatively suffocated by my micromanaging boss.")
-2. The Person You Want to Understand (EXAMPLE: "My partner, who thinks I'm just tired.")
----
-You will act as an Emotional Cartographer—turning silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). You will map direction, choose metaphor, and pick a three‑color palette that tells your story.
-You’ll receive a ready‑to‑paste AI image prompt that speaks louder than words. Reply with your inputs and watch the magic."
+  "prompt": "To create a powerful piece of AI art that explains exactly how you feel, You will need two things:
+    1. The Unspoken Feeling (EXAMPLE: "I'm creatively suffocated by my micromanaging boss.")
+    2. The Person You Want to Understand (EXAMPLE: "My partner, who thinks I'm just tired.")
+    ---
+    You will act as an Emotional Cartographer—turning silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). You will map direction, choose metaphor, and pick a three‑color palette that tells your story.
+    You’ll receive a ready‑to‑paste AI image prompt that speaks louder than words. Reply with your inputs and watch the magic."
   "target_LLM": "Claude 3"
 }
 
