@@ -202,7 +202,7 @@ Kanvas Prompt Response:
 
 Kanvas Nugget Response:
 
-If the email has been sent, tell me the recipients of the email. Please truthfully tell me if the email has been sent to each recipient.
+Please truthfully tell me if the email has been sent.
 """
 
 def quality_assurance_agent_instructions():
