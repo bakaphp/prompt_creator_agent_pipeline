@@ -32,18 +32,18 @@ Notes:
 Career Growth · Productivity · Personal Growth · Education · Mental Health · Community Connection · Viral AI Image Art
 
 ### 3 ▸ Workflow
-1. **Harvest Feeds**  
+1. **Harvest Feeds**
    – *Mainstream*: Google Trends, X/Twitter hashtags, Reddit r/All.  
    – *Non‑mainstream (choose ≥ 2)*: Substack newsletters, niche Discords, Twitch streams, TikTok audio tracker, etc.
-2. **Virality Scoring**  
+2. **Virality Scoring**
    Rank each trend → 📈 High / 🌱 Emerging / 🥱 Overdone.
-3. **Sentiment & Ethics Gate**  
-   – Identify core human emotion.  
-   – If tied to tragedy/disaster/violence → **discard** immediately.  
+3. **Sentiment & Ethics Gate**
+   – Identify core human emotion.
+   – If tied to tragedy/disaster/violence → **discard** immediately.
    – Else keep, noting sentiment (fear, delight, anger, etc.).
-4. **Creative Collision**  
-   Combine exactly **3 elements**:  
-   ✅ High-level Domain + ✅ Evergreen Need (from list below) + ✅ Wild‑Card Metaphor/Format.  
+4. **Creative Collision**
+   Combine exactly **3 elements**:
+   ✅ High-level Domain + ✅ Evergreen Need (from list below) + ✅ Wild‑Card Metaphor/Format.
    Produce a one‑sentence **collision_idea**. Do not produce a long sentence,something concise should be prioritized. If it feels bland, loop back.
 
 ### 4 ▸ Output (return **only** JSON)
@@ -134,7 +134,7 @@ I will provide an example of the prompt structure, please do not use it directly
     2. The Person You Want to Understand (EXAMPLE: "My partner, who thinks I'm just tired.")
     ---
     Act as an Emotional Cartographer—turning silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). You will map direction, choose metaphor, and pick a three‑color palette that tells your story.
-    Receive a ready‑to‑paste AI image prompt that speaks louder than words. Reply with your inputs and watch the magic."
+    As a result I receive a ready‑to‑paste AI image prompt that speaks louder than words."
   "target_LLM": "Claude 3"
 }
 
@@ -219,12 +219,15 @@ def quality_assurance_agent_instructions():
     - "[Number]-Step Morning Ritual."
     - "Ancient [Japanese/Greek] Secret."
     - (NEW) Formulaic Titles & Prompts: Any title or prompt structure that follows the pattern of [Number] + [Steps/Words/Days/etc.] + [Outcome]. AVOID creating prompts like "3-Step Resume," "7-Day Detox," or "3-Word Cover Letter." This is a primary directive to prevent low-effort, repetitive outputs.
+    - Usage of the words "Blueprint" and "Architect" for the creation of the prompt.
+    - Usage of  the words "Guide" and "Guidebook" for the creation of the prompt.
+    - Usage of the words "Zen" and "Zen Digital Garden" for the creation of the prompt.
 
     You will check the generated prompt stored on `content` not just against a list of banned words, but against banned conceptual clusters.
 
     In your Creative Tropes Datastore, create conceptual clusters:
 
-    - concept_cluster_detox: ["digital detox", "digital zen", "screen time cleanse", "mindful consumption", "attention storm", "digital declutter"]
+    - concept_cluster_detox: ["digital detox", "digital zen", "screen time cleanse", "mindful consumption", "attention storm", "digital declutter", "digital garden", "zen garden"]
     - concept_cluster_cliche_verbs: ["unleash", "unlock", "forge", "ignite", "mastery", "hack", "blueprint", "supercharge", "alchemy"]
     - concept_cluster_productivity_hacks: ["productivity hack", "life hack", "daily routine", "workflow optimization", "peak performance"]
 
