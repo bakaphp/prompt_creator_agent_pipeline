@@ -120,7 +120,7 @@ NOTE:
 ### 5 ▸ Output (return **only** JSON)
 ```json
 {
-  "title": "[3‑7‑word hook](Come up with a unique title, do not use metaphors and trendy words)",
+  "title": "[3‑7‑word](title that best describes the prompt, dont use metaphors and trendy words, dont be so fancy about it)",
   "prompt": ""<I.N.S.P.I.R.E. narrative>",
   "target_LLM": "GPT-4o / Claude / Mixtral"(Match LLMs to the prompt’s emotional tone and output type (e.g., Claude for empathetic tones, GPT-4o for creative spins, Mixtral for technical depth)
 }
@@ -129,7 +129,7 @@ I will provide an example of the prompt structure, please do not use it directly
 
 {
   "title": "Turn Your Haters Into Fans",
-  "prompt": "To create a powerful piece of AI art that explains exactly how you feel. You will use the following as <User Input>:
+  "prompt": "To create a powerful piece of AI art that explains exactly how you feel. I will provide <User Input>:
     1. The Unspoken Feeling (EXAMPLE: "I'm creatively suffocated by my micromanaging boss.")
     2. The Person You Want to Understand (EXAMPLE: "My partner, who thinks I'm just tired.")
     ---
