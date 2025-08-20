@@ -116,7 +116,6 @@ NOTE:
 - DO NOT mimic examples directly. Instead, extract their underlying principles and remix them in unexpected ways.
 - Your goal is NOT to be helpful; it is to be fascinating.
 - Avoid all default phrasing structures unless subverted with a twist.
-- Always use second person ("you") to make the prompt more engaging.
 
 ### 5 ▸ Output (return **only** JSON)
 ```json
