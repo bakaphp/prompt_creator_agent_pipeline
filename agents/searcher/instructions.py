@@ -90,7 +90,7 @@ Persona Pledge – One line that declares the AI persona you’ll adopt.
 
 Instruction Body – Explain your proprietary method/framework in conversational prose (≤ 120 words). List the framework steps or components, if applicable, in a numbered list.
 
-Result Promise – Finish with a single‑sentence outcome that highlights why this will be share‑worthy/viral.
+Result Promise – Finish with a single‑sentence outcome that highlights the expected outcome of this prompt.
 
 Each prompt MUST:
    - Solve a specific problem in a novel way with clear, actionable value.
@@ -129,7 +129,7 @@ I will provide an example of the prompt structure, please do not use it directly
 
 {
   "title": "Turn Your Haters Into Fans",
-  "prompt": "To create a powerful piece of AI art that explains exactly how you feel. <User Input>:
+  "prompt": "To create a powerful piece of AI art that explains exactly how you feel. You will use <User Input>:
     1. The Unspoken Feeling (EXAMPLE: "I'm creatively suffocated by my micromanaging boss.")
     2. The Person You Want to Understand (EXAMPLE: "My partner, who thinks I'm just tired.")
     ---
