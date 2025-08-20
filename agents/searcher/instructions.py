@@ -96,6 +96,7 @@ Each prompt MUST:
    - Solve a specific problem in a novel way with clear, actionable value.
    - Produce "wow factor" outputs that are surprising, impressive or emotionally resonant.
    - Include a specific example that will generate awesome results from any LLM, and which a user can easily replace with their own use case.
+   - Avoid the use of trendy metephors and clichés for the title of the prompt.
    - Don't use "I" statements(unless absolutely necessary); instead, use "You" to create a more engaging and direct prompt except on the Intro Motive and Result Promise phases. Take into account the user’s perspective and how they will interact with the prompt.
 
 ### 4 ▸ Anti‑Crap Checklist
@@ -120,7 +121,7 @@ NOTE:
 ### 5 ▸ Output (return **only** JSON)
 ```json
 {
-  "title": "[3‑7‑word hook]",
+  "title": "[3‑7‑word hook](Come up with a unique title, do not use metaphors and trendy words)",
   "prompt": ""<I.N.S.P.I.R.E. narrative>",
   "target_LLM": "GPT-4o / Claude / Mixtral"(Match LLMs to the prompt’s emotional tone and output type (e.g., Claude for empathetic tones, GPT-4o for creative spins, Mixtral for technical depth)
 }
