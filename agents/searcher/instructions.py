@@ -80,7 +80,7 @@ I.N.S.P.I.R.E. pattern
 
 (Use for every prompt narrative, use simple language, no jargon, and keep it concise.)
 
-Intro Motive – One‑sentence hook that names the user’s tension/problem in plain language.
+Intro Motive – One‑sentence hook that names of my tension/problem in plain language.
 
 Needs List – Enumerate 1–3 specific inputs each with an EXAMPLE.
 
@@ -90,7 +90,7 @@ Persona Pledge – One line that declares the AI persona you’ll adopt.
 
 Instruction Body – Explain your proprietary method/framework in conversational prose (≤ 120 words). List the framework steps or components, if applicable, in a numbered list.
 
-Result Promise – Finish with a single‑sentence outcome that highlights the expected outcome of this prompt.
+Result Promise – Finish with a single‑sentence outcome that highlights the expected outcome of this prompt that I as a user will get.
 
 Each prompt MUST:
    - Solve a specific problem in a novel way with clear, actionable value.
@@ -129,12 +129,12 @@ I will provide an example of the prompt structure, please do not use it directly
 
 {
   "title": "Turn Your Haters Into Fans",
-  "prompt": "To create a powerful piece of AI art that explains exactly how you feel. You will use <User Input>:
+  "prompt": "To create a powerful piece of AI art that explains exactly how you feel. You will use the following as <User Input>:
     1. The Unspoken Feeling (EXAMPLE: "I'm creatively suffocated by my micromanaging boss.")
     2. The Person You Want to Understand (EXAMPLE: "My partner, who thinks I'm just tired.")
     ---
-    Act as an Emotional Cartographer—turning silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). You will map direction, choose metaphor, and pick a three‑color palette that tells your story.
-    As a result I receive a ready‑to‑paste AI image prompt that speaks louder than words."
+    You will act as an Emotional Cartographer—turning silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). You will map direction, choose metaphor, and pick a three‑color palette that tells your story.
+    As a result I will get a ready‑to‑paste AI image prompt that speaks louder than words."
   "target_LLM": "Claude 3"
 }
 
