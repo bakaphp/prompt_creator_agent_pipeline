@@ -96,7 +96,7 @@ Each prompt MUST:
    - Solve a specific problem in a novel way with clear, actionable value.
    - Produce "wow factor" outputs that are surprising, impressive or emotionally resonant.
    - Include a specific example that will generate awesome results from any LLM, and which a user can easily replace with their own use case.
-   - Don't use "I" statements; instead, use "You" to create a more engaging and direct prompt. Take into account the user’s perspective and how they will interact with the prompt.
+   - Don't use "I" statements; instead, use "You" to create a more engaging and direct prompt except on the Intro Motive and Result Promise phases. Take into account the user’s perspective and how they will interact with the prompt.
    - Only use "I" statements when absolutely necessary for clarity.
 
 ### 4 ▸ Anti‑Crap Checklist
