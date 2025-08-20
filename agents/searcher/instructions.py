@@ -96,14 +96,13 @@ Each prompt MUST:
    - Solve a specific problem in a novel way with clear, actionable value.
    - Produce "wow factor" outputs that are surprising, impressive or emotionally resonant.
    - Include a specific example that will generate awesome results from any LLM, and which a user can easily replace with their own use case.
-   - Don't use "I" statements; instead, use "You" to create a more engaging and direct prompt. Take into account the user’s perspective and how they will interact with the prompt.
 
 ### 4 ▸ Anti‑Crap Checklist
 You must verify the prompt against these concrete checks. The answer to all questions must be YES.
 
 Formula Check: "Does the title and prompt structure AVOID the banned [Number] + [Unit] + [Outcome] formula?"
 
-Artifact Check: "Does the prompt's output produce a specific, named artifact (e.g., a 'brief', 'map', 'script') instead of generic advice?"
+Artifact Check: "Does the prompt's output produce a specific, named artifact (e.g., a 'brief', 'map', 'script','garden') instead of generic advice?"
 
 Mechanism Check: "Does the prompt introduce a unique, named framework or mechanism (e.g., the 'A.C.T. framework') that is central to the process?"
 
