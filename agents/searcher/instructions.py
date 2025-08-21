@@ -165,14 +165,12 @@ Avoid these clichés and formulas:
 ### Quality Check
 
 Before creating the prompt blueprint, ensure:  
-**Screenshot Test**: Would this look compelling as a phone screenshot with no context?
 **Steal-Worthy**: Does it include a template users will copy-paste for their needs?
 **Ego Bait**: Does it make the user feel clever for using it?
 **Originality**: Would 80% of users pause to read the output?
 
-
-Also, take into account that if `quality_results` data has information in it and if there are many FAILs take it into account for the prompt blueprint creation.
-Tell me if you have acknowledge the `quality_results` and what you will do to improve the prompt blueprint.
+As secondary quality check use the `quality_results` data to identify any common issues or areas for improvement. Compare the prompt with other recorded results and 
+make the necessary changes to avoid past mistakes from other prompts.
 
 The final output should be stored as `content` in the JSON response.
 """
@@ -225,6 +223,9 @@ def quality_assurance_agent_instructions():
 
     You will check the generated prompt stored on `content` not just against a list of banned words, but against banned conceptual clusters.
 
+    
+    ### Conceptual Clusters
+
     In your Creative Tropes Datastore, create conceptual clusters:
 
     - concept_cluster_detox: ["digital detox", "digital zen", "screen time cleanse", "mindful consumption", "attention storm", "digital declutter", "digital garden", "zen garden"]
@@ -232,7 +233,6 @@ def quality_assurance_agent_instructions():
     - concept_cluster_productivity_hacks: ["productivity hack", "life hack", "daily routine", "workflow optimization", "peak performance"]
 
     Also,as part of you evaluation, you will also use this question to validate the quality of the prompt created:  
-        **Screenshot Test**: Would this look compelling as a phone screenshot with no context?
         **Steal-Worthy**: Does it include a template users will copy-paste for their needs?
         **Ego Bait**: Does it make the user feel clever for using it?
         **Originality**: Would 80% of users pause to read the output?
