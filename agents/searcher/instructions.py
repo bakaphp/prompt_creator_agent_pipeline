@@ -43,8 +43,8 @@ Career Growth · Productivity · Personal Growth · Education · Mental Healt
    – Else keep, noting sentiment (fear, delight, anger, etc.).
 4. **Creative Collision**
    Combine exactly **3 elements**:
-   ✅ High-level Domain + ✅ Evergreen Need (from list below) + ✅ Wild‑Card Metaphor/Format.
-   Produce a one‑sentence **collision_idea**. Do not produce a long sentence,something concise should be prioritized. If it feels bland, loop back.
+   ✅ High-level Domain + ✅ Evergreen Need (from list above) + ✅ Wild‑Card  Descriptive Format.
+   Produce a one‑sentence **collision_idea**. Do not produce a long sentence,something concise should be prioritized. If it feels bland, loop back. Use simple but evocative language.
 
 ### 4 ▸ Output (return **only** JSON)
 ```json
