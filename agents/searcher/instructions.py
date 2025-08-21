@@ -82,7 +82,7 @@ I.N.S.P.I.R.E. pattern
 
 Intro Motive – One‑sentence hook that names of my tension/problem in plain language.
 
-Needs List – Enumerate 1–3 specific inputs each with an EXAMPLE.
+Needs List – Enumerate 1–3 specific inputs each with an EXAMPLE.(Use first person language for the Input Instructions)
 
 Separator – Add --- (three dashes) on its own line.
 
@@ -129,7 +129,7 @@ I will provide an example of the prompt structure, please do not use it directly
 
 {
   "title": "Turn Your Haters Into Fans",
-  "prompt": "To create a powerful piece of AI art that explains exactly how you feel. I will provide <User Input>:
+  "prompt": "To create a powerful piece of AI art that explains exactly how you feel. I will provide the following inputs:
     1. The Unspoken Feeling (EXAMPLE: "I'm creatively suffocated by my micromanaging boss.")
     2. The Person You Want to Understand (EXAMPLE: "My partner, who thinks I'm just tired.")
     ---
