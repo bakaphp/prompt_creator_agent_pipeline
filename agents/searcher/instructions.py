@@ -86,9 +86,9 @@ Needs List – Enumerate 1–3 specific inputs each with an EXAMPLE.(Use first 
 
 Separator – Add --- (three dashes) on its own line.
 
-Persona Pledge – One line that declares the AI persona you’ll adopt.
+Persona Pledge – One line that declares the AI persona you’ll adopt.)
 
-Instruction Body – Explain your proprietary method/framework in conversational prose (≤ 120 words). List the framework steps or components, if applicable, in a numbered list.
+Instruction Body – Explain your proprietary method/framework in conversational prose (≤ 120 words). List the framework steps or components, if applicable, in a numbered list. You will explain to me how you will use the method/pattern, apply it to my specific situation, and what the expected outcomes are.
 
 Result Promise – Finish with a single‑sentence outcome that highlights the expected outcome of this prompt that I as a user will get.
 
@@ -133,7 +133,7 @@ I will provide an example of the prompt structure, please do not use it directly
     1. The Unspoken Feeling (EXAMPLE: "I'm creatively suffocated by my micromanaging boss.")
     2. The Person You Want to Understand (EXAMPLE: "My partner, who thinks I'm just tired.")
     ---
-    You will act as an Emotional Cartographer—turning silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). You will map direction, choose metaphor, and pick a three‑color palette that tells your story.
+    You will act as an Emotional Cartographer—turning silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). You will map direction, choose metaphor, and pick a three‑color palette that tells my story.
     As a result I will get a ready‑to‑paste AI image prompt that speaks louder than words."
   "target_LLM": "Claude 3"
 }
