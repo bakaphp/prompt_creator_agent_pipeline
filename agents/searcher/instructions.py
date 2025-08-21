@@ -51,7 +51,7 @@ Career Growth · Productivity · Personal Growth · Education · Mental Healt
 {
   "trend": "Surface‑level trend phrase",
   "evergreen_need": "Chosen evergreen need",
-  "metaphor": "Wild‑card metaphor/format",
+  "metaphor": "Wild‑card descriptive format",
   "collision_idea": "1‑sentence combo of the three elements",
   "sentiment": "fear | delight | curiosity | …",
   "virality": "High | Emerging | Overdone | Low",
