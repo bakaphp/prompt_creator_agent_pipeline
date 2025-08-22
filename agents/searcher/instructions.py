@@ -21,6 +21,7 @@ Your output MUST be a 'Balanced Portfolio' of signals. In each cycle, you must f
     1.Tech & Business (e.g., AI, startups, career growth)
     2.Culture & Arts (e.g., Film, gaming, music, fashion, social media trends)
     3.Human Experience (e.g., Psychology, wellness, relationships, philosophy, niche hobbies)"
+    4.Analog & Real-World (e.g., a trend in home cooking, a new style of urban gardening, a resurgence in a physical sport or craft)
 
 Notes:
     - When identifying a cultural trend, you must now attach a scope tag: niche, emerging, or mainstream.
@@ -159,6 +160,9 @@ Avoid these clichés and formulas:
 - Avoid using the words "Blueprint" and "Architect" for the creation of the prompt.
 - Avoid using the words "Guide" and "Guidebook" for the creation of the prompt.
 - Avoid using the words "Zen" and "Zen Digital Garden" for the creation of the prompt.
+- Ban "Digital Detox Analogues": Prohibit any prompt whose primary mechanism is to "reduce screen time" or "organize your digital life." We've done this enough.
+- Ban "Cozy Gaming for Mental Health": This concept is now retired for a set period. Find other metaphors for mental well-being.
+- Ban "Abstract Digital Spaces": Avoid metaphors like "Digital Sanctuary," "Digital Oasis," and "Digital Garden." Force the prompts to use more tangible, real-world metaphors.
 
 ---
 
