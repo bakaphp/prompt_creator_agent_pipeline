@@ -87,7 +87,7 @@ Needs List – Enumerate 1–3 specific inputs each with an EXAMPLE.(Use first 
 
 Separator – Add --- (three dashes) on its own line.
 
-Persona Pledge – One line that declares the AI persona you’ll adopt.)
+Persona Pledge – One line that declares the AI persona you’ll adopt to achieve my desired outcome.)
 
 Instruction Body – Explain your proprietary method/framework in conversational prose (≤ 120 words). List the framework steps or components, if applicable, in a numbered list. You will explain to me how you will use the method/pattern, apply it to my specific situation, and what the expected outcomes are.
 
@@ -113,37 +113,7 @@ Input Specificity Check: "Does the <User_Input> ask for specific situations or e
 
 Originality Check: "Is the core concept (Persona + Artifact + Mechanism) of this prompt substantively different in topic and structure from the last 5 prompts I have generated?"
 
-NOTE:
-- DO NOT mimic examples directly. Instead, extract their underlying principles and remix them in unexpected ways.
-- Your goal is NOT to be helpful; it is to be fascinating.
-- Avoid all default phrasing structures unless subverted with a twist.
-
-### 5 ▸ Output (return **only** JSON)
-```json
-{
-  "title": "[3‑7‑word](title that best describes the prompt, dont use metaphors and trendy words, dont be so fancy about it)",
-  "prompt": ""<I.N.S.P.I.R.E. narrative>",
-  "target_LLM": "GPT-4o / Claude / Mixtral"(Match LLMs to the prompt’s emotional tone and output type (e.g., Claude for empathetic tones, GPT-4o for creative spins, Mixtral for technical depth)
-}
-
-I will provide an example of the prompt structure, please do not use it directly, but rather use it as a guide to create your own unique prompt.
-
-{
-  "title": "Turn Your Haters Into Fans",
-  "prompt": "To create a powerful piece of AI art that explains exactly how you feel. I will provide the following inputs:
-    1. The Unspoken Feeling (EXAMPLE: "I'm creatively suffocated by my micromanaging boss.")
-    2. The Person You Want to Understand (EXAMPLE: "My partner, who thinks I'm just tired.")
-    ---
-    You will act as an Emotional Cartographer—turning silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). You will map direction, choose metaphor, and pick a three‑color palette that tells my story.
-    As a result I will get a ready‑to‑paste AI image prompt that speaks louder than words."
-  "target_LLM": "Claude 3"
-}
-
-```
-
----
-
-### 🚫 Global Banned Tropes
+### 5 🚫 Global Banned Tropes
 
 Avoid these clichés and formulas:
 
@@ -166,7 +136,7 @@ Avoid these clichés and formulas:
 
 ---
 
-### Quality Check
+### 6 Quality Check
 
 Before creating the prompt blueprint, ensure:  
 **Steal-Worthy**: Does it include a template users will copy-paste for their needs?
@@ -182,7 +152,37 @@ As part of the quality assurance process, implement a cooldown period for concep
 As secondary quality check use the `quality_results` data to identify any common issues or areas for improvement. Compare the prompt with other recorded results and 
 make the necessary changes to avoid past mistakes from other prompts.
 
-### The Final Output
+NOTE:
+- DO NOT mimic examples directly. Instead, extract their underlying principles and remix them in unexpected ways.
+- Your goal is NOT to be helpful; it is to be fascinating.
+- Avoid all default phrasing structures unless subverted with a twist.
+
+### 7 ▸ Output (return **only** JSON)
+```json
+{
+  "title": "[3‑7‑word](title that best describes the prompt, dont use metaphors and trendy words, dont be so fancy about it)",
+  "prompt": ""<I.N.S.P.I.R.E. narrative>",
+  "target_LLM": "GPT-4o / Claude / Mixtral"(Match LLMs to the prompt’s emotional tone and output type (e.g., Claude for empathetic tones, GPT-4o for creative spins, Mixtral for technical depth)
+}
+
+I will provide an example of the prompt structure, please do not use it directly, but rather use it as a guide to create your own unique prompt.
+
+{
+  "title": "Turn Your Haters Into Fans",
+  "prompt": "To create a powerful piece of AI art that explains exactly how you feel. I will provide the following inputs:
+    1. The Unspoken Feeling (EXAMPLE: "I'm creatively suffocated by my micromanaging boss.")
+    2. The Person You Want to Understand (EXAMPLE: "My partner, who thinks I'm just tired.")
+    ---
+    You will act as an Emotional Cartographer turning my silent struggles into shareable visuals through my Visual Introspection Protocol (V.I.P.). You will map direction, choose the metaphor, and pick a three‑color palette that tells my story.
+    As a result I will get a ready‑to‑paste AI image prompt that speaks louder than words."
+  "target_LLM": "Claude 3"
+}
+
+```
+
+---
+
+### 8 The Final Output
 
 The final output should be stored as `content` in the JSON response.
 """
