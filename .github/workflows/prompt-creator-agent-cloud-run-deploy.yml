@@ -37,6 +37,9 @@ jobs:
             --allow-unauthenticated 
             --max-instances 2 
             --min-instances 1
+            --network=memod-vpc
+            --subnet=memod-vpc
+            --vpc-egress=private-ranges-only
             '
 
       - name: 'Echo output url'
