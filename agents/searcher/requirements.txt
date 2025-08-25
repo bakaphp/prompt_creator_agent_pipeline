@@ -2,3 +2,4 @@ a2a-sdk
 click
 google-adk
 python-dotenv
+psycopg[binary]
