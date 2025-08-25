@@ -1,3 +1,4 @@
+import os
 from venv import logger
 from a2a.server.agent_execution import AgentExecutor, RequestContext
 from a2a.server.events import EventQueue
@@ -11,7 +12,7 @@ from a2a.utils import new_agent_text_message, new_task
 from google.adk.artifacts import InMemoryArtifactService
 from google.adk.memory.in_memory_memory_service import InMemoryMemoryService
 from google.adk.runners import Runner
-from google.adk.sessions import InMemorySessionService
+from google.adk.sessions import DatabaseSessionService
 from google.genai import types
 
 
@@ -36,7 +37,7 @@ class ADKAgentExecutor(AgentExecutor):
             app_name=agent.name,
             agent=agent,
             artifact_service=InMemoryArtifactService(),
-            session_service=InMemorySessionService(),
+            session_service=DatabaseSessionService(db_url=os.getenv("DB_CONNECTION_STRING")),
             memory_service=InMemoryMemoryService(),
         )
 
