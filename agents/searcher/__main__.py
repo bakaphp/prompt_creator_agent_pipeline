@@ -7,6 +7,7 @@ import profile
 import re
 import requests
 
+from agents.searcher.services.memory_service import DatabaseMemoryService
 import click
 import uvicorn
 
@@ -88,6 +89,7 @@ def send_email(text_body: str):
 def main():
     agent_model = os.getenv("AGENT_MODEL", "gemini-2.5-flash")
     agent_info = get_agent_information()
+    postgres_memory_service = DatabaseMemoryService(os.getenv("DB_CONNECTION_STRING"))
 
     email_sender_agent = LlmAgent(
         name=agent_info["email_sender_agent"]["name"],
@@ -132,7 +134,7 @@ def main():
         model='gemini-2.5-pro',
         description=agent_info["quality_assurance_agent"]["description"],
         instruction=agent_info["quality_assurance_agent"]["instruction"],
-        output_key="quality_results",
+        tools=[postgres_memory_service.store_quality_result],
     )
 
     prompt_creation_agent = LlmAgent(

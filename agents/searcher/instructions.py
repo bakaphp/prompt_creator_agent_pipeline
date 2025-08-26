@@ -250,7 +250,19 @@ def quality_assurance_agent_instructions():
         **Originality**: Would 80% of users pause to read the output?
 
     Use a semantic similarity check. If a prompt's core concept is too similar to one of these clusters the result should be in this format: "FAIL: Semantic similarity to banned concept: [cluster_name]".
-    Store your results as `quality_results`. If the results is a PASS then also add it to the `quality_results` data.
+    If the prompt passes then also state why the prompt passed, at least a sentence explaining the reasoning.
+
+    Store your result using the following format:
+    ```json
+    {
+        "prompt": "The original prompt text",
+        "status": "PASS/FAIL",
+        "reason": "If FAIL, explain why"
+    }
+    ```
+
+    and use the `store_quality_result` method of the `DatabaseMemoryService` class to store the result. Pass each of the json elements as arguments to the method.
+    For the prompt param use what is inside `content`, and for the status and reason params use the corresponding values from the JSON result.
 
 """
 

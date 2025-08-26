@@ -3,3 +3,4 @@ click
 google-adk
 python-dotenv
 psycopg[binary]
+asyncpg
