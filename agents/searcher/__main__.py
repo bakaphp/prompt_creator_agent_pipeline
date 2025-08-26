@@ -7,7 +7,7 @@ import profile
 import re
 import requests
 
-from agents.searcher.services.memory_service import DatabaseMemoryService
+from services.memory_service import DatabaseMemoryService
 import click
 import uvicorn
 
