@@ -11,7 +11,7 @@ class DatabaseMemoryService(object):
         """Retrieve prompt quality results based on status."""
         conn = await asyncpg.connect(self.db_url)
         rows = await conn.fetch(
-            "SELECT * FROM prompt_quality_results WHERE status = $1", status
+            "SELECT * FROM prompts_quality_results WHERE status = $1", status
         )
         await conn.close()
         return [dict(row) for row in rows]
@@ -20,7 +20,7 @@ class DatabaseMemoryService(object):
         """Store memory for a specific prompt."""
         conn = await asyncpg.connect(self.db_url)
         result = await conn.execute(
-            "INSERT INTO prompt_quality_results (prompt, status, reason, created_at) VALUES ($1, $2, $3, NOW())",
+            "INSERT INTO prompts_quality_results (prompt, status, reason, created_at) VALUES ($1, $2, $3, NOW())",
             prompt,
             status,
             reason
