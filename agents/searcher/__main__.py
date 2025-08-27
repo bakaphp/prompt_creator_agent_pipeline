@@ -89,7 +89,7 @@ def send_email(text_body: str):
 def main():
     agent_model = os.getenv("AGENT_MODEL", "gemini-2.5-flash")
     agent_info = get_agent_information()
-    postgres_memory_service = DatabaseMemoryService(os.getenv("DB_CONNECTION_STRING"))
+    postgres_memory_service = DatabaseMemoryService("postgresql://" + os.getenv("DB_CONNECTION_STRING"))
 
     email_sender_agent = LlmAgent(
         name=agent_info["email_sender_agent"]["name"],

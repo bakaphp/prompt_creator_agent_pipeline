@@ -37,7 +37,7 @@ class ADKAgentExecutor(AgentExecutor):
             app_name=agent.name,
             agent=agent,
             artifact_service=InMemoryArtifactService(),
-            session_service=DatabaseSessionService(db_url=os.getenv("DB_CONNECTION_STRING")),
+            session_service=DatabaseSessionService(db_url="postgresql+psycopg://" + os.getenv("DB_CONNECTION_STRING")),
             memory_service=InMemoryMemoryService(),
         )
 
