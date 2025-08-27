@@ -146,11 +146,10 @@ Before creating the prompt blueprint, ensure:
 #### Concept Recurrence Cooldown
 
 As part of the quality assurance process, implement a cooldown period for concepts that have been recently used in prompts. This means if a concept has been utilized in a prompt, it cannot be used again for a specified duration (e.g., 48 to 72 hours).
+You will use the `retrieve_prompt_quality_results` function from `DatabaseMemoryService` to check for recent uses of a concept. For the `status` parameter, you will pass the value `PASS` to search for the top 10 most recent prompts that have passed the quality assurance check.
+As secondary quality check you will use the results from the `retrieve_prompt_quality_results` function to identify any common issues or areas for improvement. Compare the prompt with other recorded results and
+make the necessary changes to make the prompt more effective.
 
-#### Secondary Advisor
-
-As secondary quality check use the `quality_results` data to identify any common issues or areas for improvement. Compare the prompt with other recorded results and 
-make the necessary changes to avoid past mistakes from other prompts.
 
 NOTE:
 - DO NOT mimic examples directly. Instead, extract their underlying principles and remix them in unexpected ways.

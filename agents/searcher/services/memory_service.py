@@ -11,7 +11,7 @@ class DatabaseMemoryService(object):
         """Retrieve prompt quality results based on status."""
         conn = await asyncpg.connect(self.db_url)
         rows = await conn.fetch(
-            "SELECT * FROM prompts_quality_results WHERE status = $1", status
+            "SELECT * FROM prompts_quality_results WHERE status = $1 ORDER BY created_at DESC LIMIT 10", status
         )
         await conn.close()
         return [dict(row) for row in rows]
