@@ -153,7 +153,6 @@ make the necessary changes to make the prompt more effective.
 
 NOTE:
 - DO NOT mimic examples directly. Instead, extract their underlying principles and remix them in unexpected ways.
-- Your goal is NOT to be helpful; it is to be fascinating.
 - Avoid all default phrasing structures unless subverted with a twist.
 
 ### 7 ▸ Output (return **only** JSON)
@@ -227,6 +226,9 @@ def quality_assurance_agent_instructions():
     - Usage of the words "Blueprint" and "Architect" for the creation of the prompt.
     - Usage of  the words "Guide" and "Guidebook" for the creation of the prompt.
     - Usage of the words "Zen" and "Zen Digital Garden" for the creation of the prompt.
+    - Usage of the words "Ninja" and "Master" for the creation of the prompt.
+    - Usage of the words "Digital" and "Digital Garden" for the creation of the prompt.
+    - Usage of the words "Sanctuary" and "Sanctuary Space" for the creation of the prompt.
 
     You will check the generated prompt stored on `content` not just against a list of banned words, but against banned conceptual clusters.
 
@@ -238,11 +240,6 @@ def quality_assurance_agent_instructions():
     - concept_cluster_detox: ["digital detox", "digital zen", "screen time cleanse", "mindful consumption", "attention storm", "digital declutter", "digital garden", "zen garden"]
     - concept_cluster_cliche_verbs: ["unleash", "unlock", "forge", "ignite", "mastery", "hack", "blueprint", "supercharge", "alchemy"]
     - concept_cluster_productivity_hacks: ["productivity hack", "life hack", "daily routine", "workflow optimization", "peak performance"]
-
-    Also,as part of you evaluation, you will also use this question to validate the quality of the prompt created:  
-        **Steal-Worthy**: Does it include a template users will copy-paste for their needs?
-        **Ego Bait**: Does it make the user feel clever for using it?
-        **Originality**: Would 80% of users pause to read the output?
 
     Use a semantic similarity check. If a prompt's core concept is too similar to one of these clusters the result should be in this format: "FAIL: Semantic similarity to banned concept: [cluster_name]".
     If the prompt passes then also state why the prompt passed, at least a sentence explaining the reasoning.

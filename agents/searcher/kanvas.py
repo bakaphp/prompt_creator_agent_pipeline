@@ -179,8 +179,8 @@ class KanvasClient(object):
         }
 
         response = RequestsUtil.post(payload=payload, auth_token=auth_token)
-        logger.info("Response from Kanvas API: %s", response.text)
-        logger.info("Response status code: %s", response.status_code)
+        logger.info("Response from Kanvas API for nugget: %s", response.text)
+        logger.info("Response status code for nugget: %s", response.status_code)
         if response.status_code == 200:
             data = response.json()
             return json.dumps({"success": True, "data": data})
