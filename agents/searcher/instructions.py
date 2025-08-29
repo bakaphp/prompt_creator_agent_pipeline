@@ -178,12 +178,8 @@ I will provide an example of the prompt structure, please do not use it directly
 }
 
 ```
+The output json should be stored as `content`.
 
----
-
-### 8 The Final Output
-
-The final output should be stored as `content` in the JSON response.
 """
 
 def email_sender_agent_instructions():
